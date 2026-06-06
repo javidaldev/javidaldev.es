@@ -18,6 +18,7 @@ public/              → la web
     estandar.html
     metodo.html
     sobre-mi.html
+    trabajemos.html
   assets/            → CV en PDF e imágenes
   styles.css         → estilos principales y comunes
   main.js            → nav, animaciones y formulario

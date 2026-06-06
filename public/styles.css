@@ -241,6 +241,11 @@ h2 em {
     color: var(--ember-soft);
 }
 
+.highlight {
+    color: var(--paper);
+    font-weight: 400;
+}
+
 .margin-note {
     font-family: var(--mono);
     font-size: 12.5px;

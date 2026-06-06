@@ -19,6 +19,7 @@
         <a href="#estandar">Estándar</a>
         <a href="#metodo">El método</a>
         <a href="#sobre-mi">Sobre mí</a>
+        <a href="#trabajemos">Trabajemos</a>
         <a href="/github" target="_blank" rel="noopener">GitHub</a>
         <a href="/linkedin" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -29,6 +30,7 @@
   <?php include __DIR__ . '/sections/estandar.html'; ?>
   <?php include __DIR__ . '/sections/metodo.html'; ?>
   <?php include __DIR__ . '/sections/sobre-mi.html'; ?>
+  <?php include __DIR__ . '/sections/trabajemos.html'; ?>
 
   <footer>
     <div class="wrap foot-inner">
