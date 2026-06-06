@@ -1,0 +1,149 @@
+<section id="contacto" class="contact">
+    <div class="wrap">
+        <div class="sec-num reveal">Contacto</div>
+        <div class="contact-grid">
+            <div class="reveal">
+                <h2>Cuéntame.</h2>
+                <p class="contact-lede">Si tienes algo entre manos —o entre líneas— y quieres a alguien que responda de que salga bien, escríbeme.</p>
+                <div class="contact-links">
+                    <a href="mailto:hola@javidaldev.es"><span class="k">email</span> hola@javidaldev.es</a>
+                    <a href="/github" target="_blank" rel="noopener"><span class="k">github</span> /javidaldev</a>
+                </div>
+            </div>
+            <div class="reveal">
+                <form id="contactForm" action="enviar.php" method="post" novalidate>
+                    <input type="text" name="website" class="hp-field" autocomplete="off" tabindex="-1">
+                    <div class="form-field">
+                        <label for="nombre">nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Cómo te llamas" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">email</label>
+                        <input type="email" id="email" name="email" placeholder="Dónde te respondo" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="mensaje">mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Qué tienes en mente" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" id="sendBtn">Enviar →</button>
+                    <div id="formMsg" class="form-msg" aria-live="polite"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact {
+        border-top: 1px solid var(--line);
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+        margin-top: 20px;
+    }
+
+    .contact h2 {
+        margin-bottom: 18px;
+    }
+
+    .contact-lede {
+        font-size: 1.12rem;
+        color: var(--paper-dim);
+        max-width: 40ch;
+        margin-bottom: 32px;
+    }
+
+    .contact-links a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--mono);
+        font-size: 15px;
+        padding: 16px 0;
+        border-top: 1px solid var(--line);
+        transition: color .25s;
+    }
+
+    .contact-links a:last-child {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .contact-links a:hover {
+        color: var(--ember);
+    }
+
+    .contact-links .k {
+        color: var(--muted);
+        width: 90px;
+        flex-shrink: 0;
+    }
+
+    .form-field {
+        margin-bottom: 18px;
+    }
+
+    .form-field label {
+        display: block;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 8px;
+        letter-spacing: .03em;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        padding: 13px 14px;
+        color: var(--paper);
+        font-family: var(--sans);
+        font-size: 15px;
+        font-weight: 300;
+        transition: border-color .25s;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+        outline: none;
+        border-color: var(--ember);
+    }
+
+    .form-field textarea {
+        resize: vertical;
+        min-height: 110px;
+    }
+
+    .hp-field {
+        display: none;
+    }
+
+    .form-msg {
+        margin-top: 14px;
+        font-family: var(--mono);
+        font-size: 13px;
+        min-height: 1.5em;
+    }
+
+    .form-msg.ok {
+        color: var(--ember-soft);
+    }
+
+    .form-msg.error {
+        color: var(--paper-dim);
+    }
+
+    .form-msg.error a {
+        color: var(--ember);
+    }
+
+    @media(max-width:880px) {
+        .contact-grid { grid-template-columns: 1fr; gap: 44px }
+    }
+</style>

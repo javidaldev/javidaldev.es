@@ -22,6 +22,7 @@
         <a href="#trabajemos">Trabajemos</a>
         <a href="/github" target="_blank" rel="noopener">GitHub</a>
         <a href="/linkedin" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#contacto" class="nav-cta">Hablemos</a>
       </div>
     </div>
   </nav>
@@ -31,6 +32,7 @@
   <?php include __DIR__ . '/sections/metodo.html'; ?>
   <?php include __DIR__ . '/sections/sobre-mi.html'; ?>
   <?php include __DIR__ . '/sections/trabajemos.html'; ?>
+  <?php include __DIR__ . '/sections/contacto.html'; ?>
 
   <footer>
     <div class="wrap foot-inner">

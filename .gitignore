@@ -7,6 +7,8 @@ Thumbs.db
 # Environment / secrets
 .env
 *.local
+public/config.php
+public/lib/
 
 # Logs
 *.log

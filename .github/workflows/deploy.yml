@@ -15,6 +15,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Descargar PHPMailer
+        run: |
+          mkdir -p public/lib/PHPMailer
+          BASE="https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.9.1/src"
+          curl -sL "$BASE/Exception.php" -o public/lib/PHPMailer/Exception.php
+          curl -sL "$BASE/PHPMailer.php" -o public/lib/PHPMailer/PHPMailer.php
+          curl -sL "$BASE/SMTP.php"      -o public/lib/PHPMailer/SMTP.php
+
+      - name: Generar config.php
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+        run: |
+          {
+            echo '<?php'
+            echo "define('SMTP_HOST', '${SMTP_HOST}');"
+            echo "define('SMTP_PORT', (int) '${SMTP_PORT}');"
+            echo "define('SMTP_USER', '${SMTP_USER}');"
+            echo "define('SMTP_PASS', '${SMTP_PASS}');"
+            echo "define('MAIL_TO',   'hola@javidaldev.es');"
+          } > public/config.php
+
       - name: Deploy public folder via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:

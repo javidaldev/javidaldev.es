@@ -19,9 +19,11 @@ public/              → la web
     metodo.html
     sobre-mi.html
     trabajemos.html
+    contacto.html
   assets/            → CV en PDF e imágenes
   styles.css         → estilos principales y comunes
   main.js            → nav, animaciones y formulario
+  enviar.php         → endpoint del formulario (SMTP vía PHPMailer)
   .htaccess          → HTTPS, redirecciones y descarga del CV
 .github/workflows/   → despliegue automático
 .gitignore           →
