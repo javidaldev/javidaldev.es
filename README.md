@@ -12,7 +12,8 @@ Una sola página, hecha para leerse de un vistazo y mantenerse sin esfuerzo. El 
  
 ```
 public/              → la web
-  index.php             
+  index.php          → estructura principal de la web, ensambla todas su partes
+  styles.css         → estilos principales y comunes
   .htaccess          → HTTPS, redirecciones y descarga del CV
 .github/workflows/   → despliegue automático
 .gitignore           →

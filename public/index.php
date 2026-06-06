@@ -4,10 +4,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>javidaldev</title>
+  <title>javidaldev — Desarrollador full-stack (.NET y Angular)</title>
+  <meta name="description" content="Artesanía automatizada: mi trabajo no es escribir cada línea, sino que cada línea merezca quedarse. Desarrollador full-stack - C#, .NET, Angular.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>javidaldev</h1>
-  <p>Web en construcción.</p>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="brand">javidal<b>dev</b></a>
+      <div class="nav-links">
+        <a href="/github" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="nav-links">
+        <a href="/linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </nav>
+ 
+  <footer>
+    <div class="wrap foot-inner">
+      <div class="foot-line">Que no dé miedo tocarlo.</div>
+      <div class="foot-meta">Javier Vidal · javidaldev.es · © 2026</div>
+    </div>
+  </footer>
 </body>
 </html>
+ 
