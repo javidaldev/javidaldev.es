@@ -15,6 +15,8 @@ public/              → la web
   index.php          → estructura principal de la web, ensambla todas su partes
   sections/          → cada sección, en su propio fichero
     hero.html
+    estandar.html
+    metodo.html
   styles.css         → estilos principales y comunes
   main.js            → nav, animaciones y formulario
   .htaccess          → HTTPS, redirecciones y descarga del CV
