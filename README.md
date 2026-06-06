@@ -17,6 +17,8 @@ public/              → la web
     hero.html
     estandar.html
     metodo.html
+    sobre-mi.html
+  assets/            → CV en PDF e imágenes
   styles.css         → estilos principales y comunes
   main.js            → nav, animaciones y formulario
   .htaccess          → HTTPS, redirecciones y descarga del CV
