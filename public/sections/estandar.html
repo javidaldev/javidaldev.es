@@ -1,0 +1,49 @@
+<section id="estandar">
+    <div class="wrap cols">
+        <div class="col-head reveal">
+            <div class="sec-num">El estándar</div>
+            <h2>Que no dé miedo <em>tocarlo</em>.</h2>
+            <div class="margin-note">No es un checklist. Es la vara con la que mido todo lo que sale de aquí.</div>
+        </div>
+        <div class="manifesto reveal">
+            <p><span class="lead">Mantenibilidad.</span> La fase más larga del software no es la creación: es el mantenimiento. Una tarea no termina cuando funciona, sino cuando quien lo toque después puede ampliarla y saber que no ha roto nada. Bien estructurado y con pruebas, eso es una tarde; mal estructurado, cada cambio es cortar el cable rojo y rezar. Si funciona pero nadie se atreve a tocarlo, todavía no está hecho.</p>
+            <p><span class="lead">Legibilidad.</span> El código se lee. Si hay que detenerse a descifrar qué hace, ya hay un problema; el bueno se lee como un libro, de corrido. Los nombres explican, las responsabilidades están donde deben —si un método se llama "guardar alumno", que guarde un alumno y no le cambie el humor al profesor de paso—, y las decisiones que importan no se esconden en una casualidad.</p>
+            <p><span class="lead">Consistencia.</span> Y que el sistema cuente una sola historia, no una por módulo. Si hay una forma de hacer algo, se hace igual en todos lados; no hay excepciones sin explicar. El código donde cada parte funciona según sus propias normas no es un sistema: es un archivador de ocurrencias que nadie entiende del todo, ni el que lo escribió.</p>
+            <p>No le temo a la complejidad cuando el problema la pide; sí a la decorativa, la que está solo para parecer más lista que el problema. Y refactorizar no es maquillar: es bajar el ruido y dejar el sistema más fácil de cambiar.</p>
+            <p>Uso la IA como acelerador, no como sustituto del criterio: <span class="punch">automatizo el trabajo, no el pensamiento</span>. Reviso lo que produce con la misma vara que lo mío.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .manifesto p {
+        font-size: clamp(1.12rem, 1.8vw, 1.34rem);
+        line-height: 1.5;
+        font-weight: 300;
+        max-width: 52ch;
+        color: var(--paper);
+        margin-bottom: 30px;
+    }
+
+    .manifesto .lead {
+        display: block;
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 1.34em;
+        color: var(--ember-soft);
+        margin-bottom: 8px;
+        letter-spacing: -.01em;
+    }
+
+    .manifesto p:last-child {
+        margin-bottom: 0;
+    }
+
+    .manifesto .punch {
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 500;
+        color: var(--ember-soft);
+    }
+</style>
