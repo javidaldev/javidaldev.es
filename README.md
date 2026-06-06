@@ -13,7 +13,10 @@ Una sola página, hecha para leerse de un vistazo y mantenerse sin esfuerzo. El 
 ```
 public/              → la web
   index.php          → estructura principal de la web, ensambla todas su partes
+  sections/          → cada sección, en su propio fichero
+    hero.html
   styles.css         → estilos principales y comunes
+  main.js            → nav, animaciones y formulario
   .htaccess          → HTTPS, redirecciones y descarga del CV
 .github/workflows/   → despliegue automático
 .gitignore           →

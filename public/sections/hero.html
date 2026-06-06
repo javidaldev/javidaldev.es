@@ -1,0 +1,214 @@
+<style>
+    header.hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background: radial-gradient(circle at 86% 32%, rgba(229, 122, 57, 0.13), transparent 46%), linear-gradient(180deg, var(--ink), var(--ink-2));
+    }
+
+    header.hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mask-image: radial-gradient(circle at 75% 45%, black, transparent 78%);
+        opacity: .5;
+    }
+
+    .hero-inner {
+        position: relative;
+        z-index: 1;
+        padding: 120px 0 80px;
+        display: grid;
+        grid-template-columns: 1.12fr .88fr;
+        gap: 56px;
+        align-items: center;
+        width: 100%
+    }
+
+    .eyebrow {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--ember);
+        letter-spacing: .04em;
+        margin-bottom: 28px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        opacity: 0;
+        animation: rise .8s .1s forwards
+    }
+
+    .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--ember);
+        display: inline-block
+    }
+
+    h1.title {
+        font-size: clamp(2.9rem, 8vw, 6rem);
+        line-height: .96;
+        font-weight: 400;
+        letter-spacing: -.02em;
+        margin-bottom: 30px
+    }
+
+    h1.title .craft {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-style: italic;
+        display: block;
+        opacity: 0;
+        animation: rise .9s .25s forwards
+    }
+
+    h1.title .auto {
+        font-family: var(--mono);
+        font-weight: 500;
+        font-size: .84em;
+        letter-spacing: -.03em;
+        display: block;
+        color: var(--paper-dim);
+        opacity: 0;
+        animation: rise .9s .42s forwards
+    }
+
+    .subtitle {
+        font-size: clamp(1.05rem, 2.2vw, 1.42rem);
+        max-width: 32ch;
+        color: var(--paper-dim);
+        font-weight: 300;
+        line-height: 1.45;
+        margin-bottom: 42px;
+        opacity: 0;
+        animation: rise .9s .6s forwards
+    }
+
+    .hero-ctas {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        align-items: center;
+        opacity: 0;
+        animation: rise .9s .78s forwards
+    }
+
+    .hero-card {
+        position: relative;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 3px;
+        padding: 28px 26px;
+        opacity: 0;
+        animation: rise .9s .9s forwards
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border: 1.5px solid var(--ember);
+        opacity: .55
+    }
+
+    .hero-card::before {
+        top: -1px;
+        left: -1px;
+        border-right: none;
+        border-bottom: none
+    }
+
+    .hero-card::after {
+        bottom: -1px;
+        right: -1px;
+        border-left: none;
+        border-top: none
+    }
+
+    .card-h {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+        letter-spacing: .04em;
+        margin-bottom: 20px
+    }
+
+    .card-row {
+        display: flex;
+        gap: 14px;
+        padding: 9px 0;
+        border-top: 1px dashed var(--line);
+        font-family: var(--mono);
+        font-size: 13px
+    }
+
+    .card-row:first-of-type {
+        border-top: none
+    }
+
+    .card-row .k {
+        color: var(--muted);
+        width: 84px;
+        flex-shrink: 0
+    }
+
+    .card-row .v {
+        color: var(--paper)
+    }
+
+    @keyframes rise {
+        from {
+            opacity: 0;
+            transform: translateY(22px)
+        }
+
+        to {
+            opacity: 1;
+            transform: none
+        }
+    }
+
+    @media(max-width:880px) {
+        .hero-inner {
+            grid-template-columns: 1fr;
+            gap: 44px;
+            padding: 108px 0 64px
+        }
+    }
+</style>
+
+<header class="hero" id="top">
+    <div class="wrap hero-inner">
+        <div class="hero-left">
+            <div class="eyebrow">javidaldev · desarrollador full-stack</div>
+            <h1 class="title">
+                <span class="craft">Artesanía</span>
+                <span class="auto">automatizada</span>
+            </h1>
+            <p class="subtitle">Mi trabajo no es escribir cada línea, sino que cada línea merezca quedarse.</p>
+            <div class="hero-ctas">
+                <a href="mailto:hola@javidaldev.es" class="btn-primary">Hablemos de tu proyecto</a>
+                <a href="https://github.com/javidaldev" target="_blank" rel="noopener" class="btn-ghost">Ver el código
+                    →</a>
+            </div>
+        </div>
+        <aside class="hero-card">
+            <div class="card-h">// perfil</div>
+            <div class="card-row"><span class="k">nombre</span><span class="v">Javier Vidal</span></div>
+            <div class="card-row"><span class="k">rol</span><span class="v">Senior full-stack</span></div>
+            <div class="card-row"><span class="k">stack</span><span class="v">C# · .NET · Angular</span></div>
+            <div class="card-row"><span class="k">arquit.</span><span class="v">Clean Architecture · CQRS · DDD</span>
+            </div>
+            <div class="card-row"><span class="k">experiencia</span><span class="v">+11 años</span></div>
+            <div class="card-row"><span class="k">base</span><span class="v">Sevilla, ES</span></div>
+        </aside>
+    </div>
+</header>

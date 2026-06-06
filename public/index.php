@@ -24,12 +24,16 @@
     </div>
   </nav>
  
+  <?php include __DIR__ . '/sections/hero.html'; ?>
+
   <footer>
     <div class="wrap foot-inner">
       <div class="foot-line">Que no dé miedo tocarlo.</div>
       <div class="foot-meta">Javier Vidal · javidaldev.es · © 2026</div>
     </div>
   </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
  
