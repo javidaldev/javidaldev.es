@@ -1,0 +1,136 @@
+<section id="metodo" class="flag">
+    <div class="wrap">
+        <div class="sec-num reveal">El método</div>
+        <div class="flag-grid">
+            <div class="flag-body reveal">
+                <h2>El primer paso <em>no es el código</em>.</h2>
+                <p class="strong">Antes de escribir una línea, me hago la película completa: qué necesitan de verdad, qué implica en el sistema y si hace falta limpiar algo antes de construir. Una vez planificado, construyo en commits pequeños con sentido —cada uno autoexplicado, progresivo— para que el resultado se forme sin sorpresas.</p>
+                <p>El primer revisor soy yo. Reviso por partes primero y el conjunto después, sin prisa por cerrar: las prisas son las que acaban en Frankenstein.</p>
+                <p>Cuando algo de lo pedido no me convence, no llevo el problema: llevo la alternativa. Primero entiendo la necesidad real —lo que hay detrás del ticket—, mido las implicaciones y entonces propongo. En equipo, el criterio manda, no la pose; y espero recibir lo mismo.</p>
+                <p>Con el legacy, la pregunta no es si se puede: es a qué coste. Esa respuesta hay que buscarla antes de meter mano. Y si puedo dejar el sistema un poco mejor de como lo encontré, lo dejo.</p>
+            </div>
+            <div class="reveal">
+                <div class="pipe">
+                    <div class="pipe-h">// el flujo</div>
+                    <div class="step">
+                        <span class="lbl">Planificar</span>
+                        <span class="by">qué, cómo y a qué coste</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="step">
+                        <span class="lbl">Construir</span>
+                        <span class="by">commits con sentido</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="step">
+                        <span class="lbl">Revisar</span>
+                        <span class="by">por partes, luego el todo</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="step">
+                        <span class="lbl">Entregar</span>
+                        <span class="by">por la rama que toca</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="pipe-foot">Si algo chirría en la revisión, se vuelve atrás. El bucle no es un defecto: es el proceso.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .flag {
+        border-top: 1px solid var(--line);
+        background: linear-gradient(180deg, var(--ink), var(--ink-2));
+    }
+
+    .flag-grid {
+        display: grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap: 56px;
+        align-items: start;
+        margin-top: 20px;
+    }
+
+    .flag-body p {
+        margin-bottom: 20px;
+        font-size: 1.08rem;
+        color: var(--paper-dim);
+    }
+
+    .flag-body .strong {
+        color: var(--paper);
+        font-weight: 400;
+        font-size: 1.18rem;
+    }
+
+    .flag-body p:last-child {
+        margin-bottom: 0;
+    }
+
+    .pipe {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 3px;
+        padding: 30px 26px;
+    }
+
+    .pipe-h {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 22px;
+        letter-spacing: .03em;
+    }
+
+    .step {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 0;
+    }
+
+    .step + .step {
+        border-top: 1px dashed var(--line);
+    }
+
+    .step .lbl {
+        font-family: var(--mono);
+        font-size: 14px;
+        color: var(--paper);
+        flex: 1;
+    }
+
+    .step .by {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--muted);
+    }
+
+    .check {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 1.5px solid var(--ember);
+        display: grid;
+        place-items: center;
+        color: var(--ember);
+        font-size: 12px;
+        flex-shrink: 0;
+        font-family: var(--mono);
+    }
+
+    .pipe-foot {
+        margin-top: 20px;
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 1.02rem;
+        color: var(--ember-soft);
+        line-height: 1.4;
+    }
+
+    @media(max-width:880px) {
+        .flag-grid { grid-template-columns: 1fr; gap: 44px }
+    }
+</style>

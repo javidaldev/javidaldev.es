@@ -17,6 +17,7 @@
       <a href="/" class="brand">javidal<b>dev</b></a>
       <div class="nav-links">
         <a href="#estandar">Estándar</a>
+        <a href="#metodo">El método</a>
         <a href="/github" target="_blank" rel="noopener">GitHub</a>
         <a href="/linkedin" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -25,6 +26,7 @@
  
   <?php include __DIR__ . '/sections/hero.html'; ?>
   <?php include __DIR__ . '/sections/estandar.html'; ?>
+  <?php include __DIR__ . '/sections/metodo.html'; ?>
 
   <footer>
     <div class="wrap foot-inner">
