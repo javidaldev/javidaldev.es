@@ -3,6 +3,21 @@ window.addEventListener('scroll', () => {
     navigation.classList.toggle('scrolled', window.scrollY > 20);
 });
 
+const navToggle = document.getElementById('navToggle');
+const navLinks  = document.getElementById('navLinks');
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Abrir menú');
+    }));
+}
+
 const observable = new IntersectionObserver(
     (entries) => entries.forEach(item => {
         if (item.isIntersecting) {
@@ -33,12 +48,19 @@ if (contactForm) {
         try {
             const res  = await fetch('enviar.php', { method: 'POST', body: new FormData(contactForm) });
             const data = await res.json();
-            if (!data.ok) throw new Error();
-            msg.textContent = 'Mensaje enviado. Te respondo pronto.';
-            msg.className = 'form-msg ok';
-            contactForm.reset();
+
+            if (data.ok) {
+                msg.textContent = 'Recibido. Te respondo en cuanto lo lea, no se me traspapela.';
+                msg.className = 'form-msg ok';
+                contactForm.reset();
+            } else if (res.status === 400) {
+                msg.textContent = 'Échale un ojo: falta algún campo o el email no está bien.';
+                msg.className = 'form-msg validation';
+            } else {
+                throw new Error();
+            }
         } catch {
-            msg.innerHTML = 'Algo ha fallado. Escríbeme a <a href="mailto:hola@javidaldev.es">hola@javidaldev.es</a>.';
+            msg.innerHTML = 'Algo ha fallado y no se ha podido enviar. Escríbeme directo a <a href="mailto:hola@javidaldev.es">hola@javidaldev.es</a> y así me aseguro de que me llega.';
             msg.className = 'form-msg error';
         } finally {
             btn.disabled = false;

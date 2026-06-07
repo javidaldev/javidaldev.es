@@ -15,13 +15,12 @@
   <nav>
     <div class="nav-inner">
       <a href="/" class="brand">javidal<b>dev</b></a>
-      <div class="nav-links">
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">≡</button>
+      <div class="nav-links" id="navLinks">
         <a href="#estandar">Estándar</a>
         <a href="#metodo">El método</a>
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#trabajemos">Trabajemos</a>
-        <a href="/github" target="_blank" rel="noopener">GitHub</a>
-        <a href="/linkedin" target="_blank" rel="noopener">LinkedIn</a>
         <a href="#contacto" class="nav-cta">Hablemos</a>
       </div>
     </div>
@@ -37,6 +36,10 @@
   <footer>
     <div class="wrap foot-inner">
       <div class="foot-line">Que no dé miedo tocarlo.</div>
+      <div class="foot-links">
+        <a href="/github" target="_blank" rel="noopener">GitHub</a>
+        <a href="/linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
       <div class="foot-meta">Javier Vidal · javidaldev.es · © 2026</div>
     </div>
   </footer>

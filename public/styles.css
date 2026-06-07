@@ -14,6 +14,7 @@
     --sans: "IBM Plex Sans", system-ui, sans-serif;
     --mono: "IBM Plex Mono", ui-monospace, monospace;
     --maxw: 1120px;
+    --gutter: 32px;
 }
 
 * {
@@ -61,10 +62,20 @@ a {
     text-decoration: none
 }
 
+p {
+    text-align: justify;
+    hyphens: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto
+}
+
 .wrap {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 var(--gutter);
     position: relative;
     z-index: 1
 }
@@ -89,7 +100,7 @@ nav.scrolled {
 .nav-inner {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 16px 32px;
+    padding: 16px var(--gutter);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -122,6 +133,16 @@ nav.scrolled {
 
 .nav-links a:hover {
     color: var(--paper)
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--paper);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
 }
 
 .nav-cta {
@@ -192,6 +213,22 @@ footer {
     font-style: italic;
     font-size: 1.2rem;
     color: var(--paper-dim)
+}
+
+.foot-links {
+    display: flex;
+    gap: 22px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.foot-links a {
+    transition: color .25s
+}
+
+.foot-links a:hover {
+    color: var(--paper)
 }
 
 .foot-meta {
@@ -299,14 +336,32 @@ h2 em {
     .margin-note {
         max-width: none
     }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--ink-2);
+        padding: 20px var(--gutter);
+        gap: 18px;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .nav-toggle {
+        display: block;
+    }
 }
 
 @media(max-width:640px) {
-    .wrap {
-        padding: 0 20px
-    }
-
-    .nav-inner {
-        padding: 16px 20px
+    :root {
+        --gutter: 24px;
     }
 }

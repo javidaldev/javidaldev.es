@@ -50,7 +50,7 @@ try {
     $mail->addAddress(MAIL_TO);
     $mail->addReplyTo($email, $nombre);
 
-    $mail->Subject = "Mensaje de {$nombre} — javidaldev.es";
+    $mail->Subject = "[javidaldev:contacto] {$nombre}";
     $mail->Body    = "Nombre: {$nombre}\nEmail: {$email}\n\n{$mensaje}";
 
     $mail->send();
