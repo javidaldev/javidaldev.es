@@ -11,21 +11,20 @@
                 <a href="#contacto" class="btn-primary">Hablemos de tu proyecto</a>
             </div>
         </div>
-        <aside class="hero-card">
-            <div class="card-h">// perfil</div>
-            <div class="card-row"><span class="k">nombre</span><span class="v">Javier Vidal</span></div>
-            <div class="card-row"><span class="k">rol</span><span class="v">Senior full-stack</span></div>
-            <div class="card-row"><span class="k">stack</span><span class="v">C# · .NET · Angular</span></div>
-            <div class="card-row"><span class="k">arquitectura</span><span class="v">Clean Architecture · CQRS · DDD</span>
+        <aside class="hero-aside">
+            <div class="hero-card">
+                <div class="card-h">// perfil</div>
+                <div class="card-row"><span class="k">nombre</span><span class="v">Javier Vidal</span></div>
+                <div class="card-row"><span class="k">rol</span><span class="v">Senior full-stack</span></div>
+                <div class="card-row"><span class="k">stack</span><span class="v">C# · .NET · Angular</span></div>
+                <div class="card-row"><span class="k">arquitectura</span><span class="v">Clean Architecture · CQRS · DDD</span>
+                </div>
+                <div class="card-row"><span class="k">experiencia</span><span class="v">+11 años</span></div>
+                <div class="card-row"><span class="k">base</span><span class="v">Sevilla, ES</span></div>
             </div>
-            <div class="card-row"><span class="k">experiencia</span><span class="v">+11 años</span></div>
-            <div class="card-row"><span class="k">base</span><span class="v">Sevilla, ES</span></div>
-            <div class="card-row">
-                <span class="k">enlaces</span>
-                <span class="v card-links">
-                    <a href="/github" target="_blank" rel="noopener">GitHub</a>
-                    <a href="/linkedin" target="_blank" rel="noopener">LinkedIn</a>
-                </span>
+            <div class="hero-links">
+                <a href="/github" class="btn-ghost" target="_blank" rel="noopener">GitHub</a>
+                <a href="/linkedin" class="btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
             </div>
         </aside>
     </div>
@@ -133,6 +132,12 @@
         animation: rise .9s .78s forwards
     }
 
+    .hero-aside {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
     .hero-card {
         position: relative;
         background: var(--surface);
@@ -198,17 +203,12 @@
         color: var(--paper)
     }
 
-    .card-links {
+    .hero-links {
         display: flex;
         gap: 14px;
-    }
-
-    .card-links a {
-        transition: color .25s
-    }
-
-    .card-links a:hover {
-        color: var(--ember)
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: rise .9s 1.02s forwards
     }
 
     @keyframes rise {

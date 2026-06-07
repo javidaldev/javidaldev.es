@@ -1,50 +1,43 @@
 # javidaldev
- 
+
 Mi web personal: carta de presentación y portfolio. En vivo en **[javidaldev.es](https://javidaldev.es)**.
- 
-Este repositorio es su código, "lo de detrás de la web": cómo está hecha y cómo se sostiene.
- 
+
+Este repositorio es lo de detrás: cómo está hecha y cómo se sostiene.
+
 ## Cómo está montada
- 
-Una sola página, hecha para leerse de un vistazo y mantenerse sin esfuerzo. El stack es el del tamaño del problema: lo justo para que funcione, se entienda y se pueda cambiar fácilmente.
- 
+
+Una sola página, pensada para leerse de un vistazo y mantenerse sin esfuerzo. El stack es el del tamaño del problema: lo justo para que funcione, se entienda y se pueda cambiar sin miedo.
+
 ### Estructura
- 
+
 ```
-public/              → la web
-  index.php          → estructura principal de la web, ensambla todas su partes
-  sections/          → cada sección, en su propio fichero
-    hero.html
-    estandar.html
-    metodo.html
-    sobre-mi.html
-    trabajemos.html
-    contacto.html
-  assets/            → CV en PDF e imágenes
-  styles.css         → estilos principales y comunes
+public/              → la web (docroot)
+  index.php          → arma la página a partir de las secciones
+  sections/          → una sección por fichero (hero, estandar, metodo, sobre-mi, trabajemos, contacto)
+  assets/            → imágenes
+  styles.css         → estilos comunes
   main.js            → nav, animaciones y formulario
   enviar.php         → endpoint del formulario (SMTP vía PHPMailer)
-  .htaccess          → HTTPS, redirecciones y descarga del CV
-.github/workflows/   → despliegue automático
-.gitignore           →
-README.md            →
+  .htaccess          → redirecciones HTTPS y rutas cortas
+.github/workflows/   → despliegue
 ```
- 
+
 ### Stack
- 
-HTML, CSS y JavaScript plano: sin compilar, sin dependencias. PHP pone la parte de servidor sobre el hosting (Apache) donde ya vive el dominio: ensambla la página desde sus piezas, centraliza los datos que se repiten (email, enlaces) y procesa el formulario. El `.htaccess` fuerza HTTPS y resuelve las rutas cortas (`/github`, `/linkedin`, `/cv`) sin tocar código.
+
+HTML, CSS y JavaScript plano: sin compilar, sin dependencias. PHP ensambla la página desde sus secciones, centraliza lo que se repite (email, enlaces) y procesa el formulario, sobre el Apache donde ya vive el dominio. Cada sección es un fichero con su HTML y, si hace falta, su `<style>`; lo común vive en `styles.css` y `main.js`. Añadir o quitar una sección es una línea. El `.htaccess` fuerza HTTPS y resuelve las rutas cortas (`/github`, `/linkedin`, `/cv`).
+
+### Formulario
+
+Endpoint PHP propio con el correo del hosting y una trampa anti-spam discreta. Si el envío falla, te doy el email directo y no te dejo colgado.
 
 ## Verla en local
- 
-No hace falta instalar nada ni compilar. Con PHP basta, apuntando al docroot:
- 
+
+Sin instalar ni compilar nada, solo PHP apuntando al docroot:
+
 ```
 php -S localhost:8000 -t public
 ```
- 
-Y abrir `http://localhost:8000` en el navegador.
- 
+
 ## Despliegue
- 
-Cada push a `main` dispara un GitHub Action que sube `public/` por FTPS al hosting. Las credenciales viven en los *secrets* del repositorio, nunca en el código.
- 
+
+Cada push a `main` dispara un GitHub Action que sube `public/` por FTPS. Las credenciales viven en los *secrets* del repositorio, nunca en el código.
