@@ -44,16 +44,22 @@
   <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
 
-  <!-- Scheme.org - Person -->
+  <!-- Schema.org - ProfilePage / Person -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": "https://javidaldev.es/#profile",
+    "url": "https://javidaldev.es/",
+    "name": "javidaldev — Javier Vidal",
+    "description": "Perfil profesional de Javier Vidal, desarrollador full-stack senior especializado en C#, .NET y Angular.",
+    "inLanguage": "es-ES",
+    "mainEntity": {
       "@type": "Person",
       "@id": "https://javidaldev.es/#javier-vidal",
       "name": "Javier Vidal",
       "alternateName": "javidaldev",
       "url": "https://javidaldev.es/",
-      "mainEntityOfPage": "https://javidaldev.es/",
       "image": "https://javidaldev.es/assets/images/javidaldev.png",
       "jobTitle": "Desarrollador full-stack senior",
       "description": "Desarrollador full-stack centrado en software que se entiende, se mantiene y dura. C#, .NET y Angular.",
@@ -63,12 +69,13 @@
         "addressRegion": "Andalucía",
         "addressCountry": "ES"
       },
-      "knowsAbout": ["C#", ".NET", "Angular", "TypeScript", "Clean Architecture", "CQRS", "Domain-Driven Design (DDD)", "SQL Server"],
+      "knowsAbout": ["C#", ".NET", "Angular", "TypeScript", "Clean Architecture", "CQRS", "Domain-Driven Design", "SQL Server", "Software mantenible"],
       "sameAs": [
         "https://github.com/javidaldev",
         "https://www.linkedin.com/in/javidaldev"
       ]
     }
+  }
   </script>
 </head>
 <body>
