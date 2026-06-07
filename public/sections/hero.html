@@ -1,11 +1,11 @@
 <header class="hero" id="top">
     <div class="wrap hero-inner">
         <div class="hero-left">
-            <div class="eyebrow">javidaldev · desarrollador full-stack</div>
-            <h1 class="title">
+            <h1 class="eyebrow">Javier Vidal · desarrollador full-stack C#, .NET y Angular</h1>
+            <p class="title">
                 <span class="craft">Artesanía</span>
                 <span class="auto">automatizada</span>
-            </h1>
+            </p>
             <p class="subtitle">Mi trabajo no es escribir cada línea, sino que cada línea merezca quedarse.</p>
             <div class="hero-ctas">
                 <a href="#contacto" class="btn-primary">Hablemos de tu proyecto</a>
@@ -84,7 +84,7 @@
         display: inline-block
     }
 
-    h1.title {
+    .title {
         font-size: clamp(2.9rem, 8vw, 6rem);
         line-height: .96;
         font-weight: 400;
@@ -92,7 +92,7 @@
         margin-bottom: 30px
     }
 
-    h1.title .craft {
+    .title .craft {
         font-family: var(--serif);
         font-weight: 500;
         font-style: italic;
@@ -101,7 +101,7 @@
         animation: rise .9s .25s forwards
     }
 
-    h1.title .auto {
+    .title .auto {
         font-family: var(--mono);
         font-weight: 500;
         font-size: .84em;
@@ -233,7 +233,7 @@
     }
 
     @media(max-width:640px) {
-        h1.title {
+        .title {
             font-size: clamp(2rem, 10vw, 3.4rem);
         }
     }
