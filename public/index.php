@@ -4,12 +4,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>javidaldev — Desarrollador full-stack (.NET y Angular)</title>
-  <meta name="description" content="Artesanía automatizada: mi trabajo no es escribir cada línea, sino que cada línea merezca quedarse. Desarrollador full-stack - C#, .NET, Angular.">
+  
+  <!-- Básico -->
+  <title>javidaldev — Javier Vidal · Desarrollador full-stack .NET y Angular</title>
+  <meta name="description" content="Desarrollador full-stack en Sevilla (C#, .NET, Angular). Mi trabajo no es escribir cada línea, sino que cada línea merezca quedarse.">
+  <link rel="canonical" href="https://javidaldev.es/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="javidaldev">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://javidaldev.es/">
+  <meta property="og:title" content="javidaldev — Artesanía automatizada">
+  <meta property="og:description" content="Desarrollador full-stack. Mi trabajo no es escribir cada línea, sino que cada línea merezca quedarse. C# · .NET · Angular.">
+  <meta property="og:image" content="https://javidaldev.es/assets/images/og-javidaldev.png">
+  <meta property="og:image:secure_url" content="https://javidaldev.es/assets/images/og-javidaldev.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="javidaldev — Artesanía automatizada. Javier Vidal, desarrollador full-stack.">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="javidaldev — Artesanía automatizada">
+  <meta name="twitter:description" content="Desarrollador full-stack. Mi trabajo no es escribir cada línea, sino que cada línea merezca quedarse. C# · .NET · Angular.">
+  <meta name="twitter:image" content="https://javidaldev.es/assets/images/og-javidaldev.png">
+  <meta name="twitter:image:alt" content="javidaldev — Artesanía automatizada.">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300&display=swap" rel="stylesheet">
+  
+  <!-- Style -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Favicon -->
   <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
   <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
