@@ -14,7 +14,7 @@ Una sola página, pensada para leerse de un vistazo y mantenerse sin esfuerzo. E
 public/              → la web (docroot)
   index.php          → arma la página a partir de las secciones
   sections/          → una sección por fichero (hero, estandar, metodo, sobre-mi, trabajemos, contacto)
-  assets/            → imágenes
+  assets/            → imágenes, documentos, favicon...
   styles.css         → estilos comunes
   main.js            → nav, animaciones y formulario
   enviar.php         → endpoint del formulario (SMTP vía PHPMailer)

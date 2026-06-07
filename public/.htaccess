@@ -13,3 +13,6 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # Redirecciones Externas
 RewriteRule ^github/?$ https://github.com/javidaldev [R=302,L]
 RewriteRule ^linkedin/?$ https://www.linkedin.com/in/javidaldev [R=302,L]
+
+# Rutas internas
+RewriteRule ^cv/?$ assets/docs/cv-javier-vidal.pdf [L]

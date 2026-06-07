@@ -106,6 +106,7 @@
       <div class="foot-links">
         <a href="/github" target="_blank" rel="noopener">GitHub</a>
         <a href="/linkedin" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="/cv" target="_blank" rel="noopener">Trayectoria</a>
       </div>
       <div class="foot-meta">Javier Vidal · javidaldev.es · © 2026</div>
     </div>
