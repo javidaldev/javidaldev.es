@@ -37,6 +37,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300&display=swap" rel="stylesheet">
   
   <!-- Style -->
+  <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="styles.css">
 
   <!-- Favicon -->
@@ -78,7 +79,7 @@
   }
   </script>
 </head>
-<body>
+<body class="page-home">
   <nav>
     <div class="nav-inner">
       <a href="/" class="brand">javidal<b>dev</b></a>
