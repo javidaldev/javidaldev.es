@@ -8,12 +8,12 @@
   <!-- Básico -->
   <title>Diseño web en Sevilla — páginas y tiendas online · javidaldev</title>
   <meta name="description" content="Diseño web para negocios y autónomos en Sevilla: páginas y tiendas online que cargan rápido, se encuentran y no te dejan atado. La hace, de principio a fin, quien responde de ella.">
-  <link rel="canonical" href="https://javidaldev.es/diseno-web">
+  <link rel="canonical" href="https://javidaldev.es/diseno-web/">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="javidaldev">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:url" content="https://javidaldev.es/diseno-web">
+  <meta property="og:url" content="https://javidaldev.es/diseno-web/">
   <meta property="og:title" content="Diseño web en Sevilla — páginas y tiendas online · javidaldev">
   <meta property="og:description" content="Diseño web para negocios y autónomos en Sevilla: páginas y tiendas online que cargan rápido, se encuentran y no te dejan atado.">
   <!-- TODO: og:image — assets/images/og-diseno-web.png (pendiente de crear) -->
@@ -46,7 +46,7 @@
     "@id": "https://javidaldev.es/diseno-web#service",
     "name": "Diseño web en Sevilla · javidaldev",
     "description": "Diseño web para negocios y autónomos en Sevilla: páginas y tiendas online que cargan rápido, se encuentran y no te dejan atado. La hace, de principio a fin, quien responde de ella.",
-    "url": "https://javidaldev.es/diseno-web",
+    "url": "https://javidaldev.es/diseno-web/",
     "provider": {
       "@type": "Organization",
       "@id": "https://javidaldev.es/#javidaldev",
