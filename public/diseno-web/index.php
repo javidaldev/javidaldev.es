@@ -79,6 +79,7 @@
     <div class="nav-links" id="navLinks">
       <a href="#servicios">Qué hago</a>
       <a href="#como-trabajo">Cómo trabajo</a>
+      <a href="#faq">Preguntas frecuentes</a>
       <a href="#contacto" class="nav-cta">Hablemos</a>
     </div>
   </div>
@@ -89,6 +90,7 @@
 <?php include __DIR__ . '/sections/servicios.html'; ?>
 <?php include __DIR__ . '/sections/como-trabajo.html'; ?>
 <?php include __DIR__ . '/sections/contacto.html'; ?>
+<?php include __DIR__ . '/sections/faq.html'; ?>
 
 <?php
 $foot_line = 'No solo que funcione. Que aguante.';

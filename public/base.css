@@ -319,6 +319,11 @@ footer {
     transform: none;
 }
 
+.justify {
+    text-align: justify;
+    hyphens: auto;
+}
+
 @keyframes rise {
     from {
         opacity: 0;
