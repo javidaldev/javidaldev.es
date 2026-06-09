@@ -54,12 +54,9 @@
   </div>
 </nav>
 
-<!-- secciones: se añaden commit a commit -->
-<!-- 3 · hero -->
-<!-- 4 · problema -->
-<!-- 5 · servicios -->
-<!-- 6 · como-trabajo -->
-<!-- 7 · contacto -->
+<?php include __DIR__ . '/sections/hero.html'; ?>
+
+<!-- secciones pendientes: problema · servicios · como-trabajo · contacto -->
 
 <?php
 $foot_line = 'No solo que funcione. Que aguante.';
