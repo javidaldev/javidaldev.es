@@ -1,0 +1,62 @@
+<section id="problema">
+    <div class="wrap">
+        <div class="section-head reveal">
+            <h2 class="eyebrow center">Lo que suele pasar</h2>
+            <p class="sec-title">¿Te suena <em>alguno</em>?</p>
+            <p class="sub">No hace falta que entiendas de webs. Para eso ya estoy yo.</p>
+        </div>
+        <div class="cases-grid reveal">
+            <div class="case">Tienes una web de hace años y se nota —en el móvil, ni te cuento—.</div>
+            <div class="case">Vendes por WhatsApp e Instagram y quieres algo tuyo, sin depender de las redes.</div>
+            <div class="case">El que te la hizo desapareció y ya nadie le mete mano.</div>
+            <div class="case">No vendes online ni falta; solo quieres que al buscarte te encuentren con buena cara.</div>
+            <div class="case">Te montaron una que ahora no puede tocar nadie sin que algo se rompa.</div>
+            <div class="case">Quieres vender online y no sabes por dónde empezar.</div>
+            <div class="case">La web está ahí, pero no entra por ella ni un solo contacto.</div>
+            <div class="case">No apareces cuando alguien te busca en Google, ni a ti ni a lo que vendes.</div>
+            
+
+        </div>
+        <p class="cases-foot reveal">Si has dicho que sí a uno, ese es el punto de partida. Lo demás lo vamos hablando.</p>
+    </div>
+</section>
+
+<style>
+    .cases-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+        gap: 2px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .case {
+        background: var(--ink);
+        padding: 26px 24px;
+        font-size: 1.02rem;
+        color: var(--paper-dim);
+        line-height: 1.45;
+        position: relative;
+    }
+
+    .case::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 34px;
+        height: 2px;
+        background: var(--ember);
+    }
+
+    .cases-foot {
+        text-align: center;
+        margin-top: 30px;
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 1.14rem;
+        color: var(--ember-soft);
+    }
+</style>

@@ -55,8 +55,9 @@
 </nav>
 
 <?php include __DIR__ . '/sections/hero.html'; ?>
+<?php include __DIR__ . '/sections/problema.html'; ?>
 
-<!-- secciones pendientes: problema · servicios · como-trabajo · contacto -->
+<!-- secciones pendientes: servicios · como-trabajo · contacto -->
 
 <?php
 $foot_line = 'No solo que funcione. Que aguante.';
