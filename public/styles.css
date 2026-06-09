@@ -3,10 +3,6 @@ p {
     hyphens: auto;
 }
 
-section {
-    padding: 120px 0;
-}
-
 /* layout de sección: cabecera lateral + cuerpo */
 .cols {
     display: grid;
@@ -91,10 +87,6 @@ section {
 }
 
 @media(max-width:880px) {
-    section {
-        padding: 84px 0
-    }
-
     .cols {
         grid-template-columns: 1fr;
         gap: 30px;

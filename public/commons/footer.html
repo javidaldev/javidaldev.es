@@ -1,0 +1,18 @@
+<?php
+// Variables esperadas:
+//   $foot_line  (string, texto plano)
+//   $foot_links (array de ['href'=>, 'label'=>, 'external'=>bool], opcional)
+?>
+<footer>
+    <div class="wrap foot-inner">
+        <div class="foot-line"><?= htmlspecialchars($foot_line) ?></div>
+        <?php if (!empty($foot_links)): ?>
+        <div class="foot-links">
+            <?php foreach ($foot_links as $l): ?>
+            <a href="<?= htmlspecialchars($l['href']) ?>"<?= !empty($l['external']) ? ' target="_blank" rel="noopener"' : '' ?>><?= htmlspecialchars($l['label']) ?></a>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+        <div class="foot-meta">Javier Vidal · <a href="https://javidaldev.es" target="_blank">javidaldev.es</a> · © <?= date('Y') ?></div>
+    </div>
+</footer>

@@ -6,54 +6,69 @@ Este repositorio es su código —lo de detrás de la web: cómo está hecha y c
 
 ## Cómo está montada
 
-Una sola página, hecha para leerse de un vistazo y mantenerse sin esfuerzo. El stack es el del tamaño del problema: lo justo para que funcione, se entienda y se pueda cambiar sin miedo.
+Multipágina sobre el mismo stack: HTML, CSS y JavaScript plano servido tal cual, sin compilar ni depender de nada. PHP ensambla cada página desde sus secciones, centraliza lo que se repite y procesa el formulario, sobre el Apache donde ya vive el dominio.
 
 ### Estructura
 
 ```
 public/                  → docroot: lo que se sirve, tal cual
   index.php              → home: ensambla la página y centraliza los datos repetidos
-  sections/              → secciones de la HOME, cada una en su fichero
-    hero.html · estandar.html · metodo.html · sobre-mi.html · trabajemos.html · contacto.html
-  base.css               → capa COMÚN (tokens, reset, nav, botones, eyebrow, footer, grano, reveal)
-  styles.css             → estilos ESPECÍFICOS de la home (counter, layout, sec-num…)
+  sections/              → secciones de la HOME (hero, estandar, metodo, sobre-mi, trabajemos, contacto)
+  commons/              → fragmentos comunes incluidos desde cualquier index.php
+    footer.html          → footer parametrizado ($foot_line, $foot_links, $foot_meta)
+  diseno-web/            → landing /diseno-web
+    index.php            → ensambla la landing (<head> y nav propios)
+    sections/            → secciones de la landing (hero, problema, servicios, como-trabajo, contacto)
+    diseno-web.css       → estilos específicos de la landing
+  base.css               → capa común (tokens, reset, counter, nav, botones, eyebrow, footer, reveal)
+  styles.css             → estilos específicos de la home (layout columnas, sec-num, sec-title…)
   assets/                → CV en PDF, imágenes, favicon y OG
-  main.js                → nav, animaciones y formulario (común)
+  main.js                → nav, animaciones y formulario (común a todas las páginas)
   enviar.php             → endpoint del formulario, parametrizado por origen
-  .htaccess              → HTTPS, rutas cortas y servido del CV
+  .htaccess              → HTTPS, redirecciones y descarga del CV
 .github/workflows/       → despliegue automático
 README.md
 ```
 
 ### Stack
 
-HTML, CSS y JavaScript plano, servido tal cual: sin compilar, sin dependencias. PHP pone la parte de servidor sobre el hosting (Apache) donde ya vive el dominio: ensambla la página desde sus piezas, centraliza los datos que se repiten (email, enlaces) y procesa el formulario. El `.htaccess` fuerza HTTPS y resuelve las rutas cortas sin tocar código: `/github` y `/linkedin` como redirects externos, y `/cv` como **rewrite interno** que sirve `assets/docs/cv-javier-vidal.pdf` inline (en el navegador, sin forzar descarga).
+HTML, CSS y JavaScript plano: sin compilar, sin dependencias. PHP ensambla cada página desde sus secciones, centraliza lo que se repite (email, enlaces) y procesa el formulario. El `.htaccess` fuerza HTTPS y resuelve las rutas cortas: `/github`, `/linkedin` como redirects externos; `/cv` como rewrite interno que sirve el PDF inline; `/diseno-web` con trailing slash canónico.
 
-### Una página, piezas independientes
+### Páginas y rutas
 
-`index.php` no es la web: es el índice que la arma. Cada sección vive en su propio fichero dentro de `sections/`, con su HTML y, si lo necesita, su `<style>` al lado. Añadir, mover o quitar una sección es tocar una línea. El visitante recibe una página HTML completa y normal: el ensamblado ocurre en el servidor, no en el navegador.
+| Ruta | Descripción |
+|---|---|
+| `/` | Home de marca personal (desarrollador full-stack) |
+| `/diseno-web` | Landing comercial de diseño web en Sevilla |
+| `/cv` | CV en PDF (inline, sin forzar descarga) |
+| `/github` | Redirect a GitHub |
+| `/linkedin` | Redirect a LinkedIn |
 
-El CSS se divide en dos capas: `base.css` tiene lo común a toda la web (tokens, reset, nav, botones, footer, animaciones); `styles.css` tiene lo específico de la home (counter de secciones, layout de columnas, tipografía de cabecera). Lo verdaderamente local a una sección viaja con ella en su `<style>`. Mientras cada sección use sus propias clases, no se pisan.
+### CSS: tres capas
 
-`main.js` es pequeño y de página entera: el menú en móvil, las animaciones de aparición y el envío del formulario.
+- **`base.css`** — común a todas las páginas: tokens, reset, counter de secciones, nav, botones, eyebrow, footer, reveal, keyframes.
+- **`<página>.css`** — específico de cada página: `styles.css` para la home, `diseno-web/diseno-web.css` para la landing.
+- **`<style>` en cada sección** — solo lo verdaderamente local a ese bloque.
+
+Cada página carga `base.css` + su propio CSS de página. Los CSS de página nunca colisionan entre sí; `body.page-home` / `body.page-diseno-web` da scope adicional.
 
 ### Formulario
 
-El envío lo gestiona un endpoint PHP propio con el correo del hosting. El JavaScript se ocupa de la validación y de avisar si algo sale bien o mal —si falla, te da el email directo y no te deja colgado—. Lleva una trampa anti-spam discreta.
+Endpoint PHP propio (`enviar.php`) con el correo del hosting, parametrizado por `origen` (whitelist en servidor: `home`, `diseno-web`…). Honeypot anti-spam. Si el envío falla, muestra el email directo.
 
-### SEO y marca (cabecera)
+### SEO
 
-`index.php` centraliza también las etiquetas de cabecera: `<title>` y `meta description` orientados a marca (`javidaldev` primero), Open Graph, favicon (la `j` del wordmark) y `schema.org` (`ProfilePage` + `Person`).
+Cada página tiene su propio `<head>`: title/description/OG orientados a su propósito (marca personal vs. servicio comercial). `schema.org` separado: `ProfilePage + Person` en la home, `ProfessionalService` en la landing.
 
 ## Verla en local
 
-No hace falta instalar nada ni compilar. Con PHP basta, apuntando al docroot:
+Sin instalar ni compilar nada, solo PHP apuntando al docroot:
 
 ```
 php -S localhost:8000 -t public
 ```
 
-Y abrir `http://localhost:8000` en el navegador.
+Home → `http://localhost:8000` · Landing → `http://localhost:8000/diseno-web`
 
 ## Despliegue
 

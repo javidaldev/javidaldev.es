@@ -53,6 +53,7 @@ body {
 section {
     position: relative;
     counter-increment: section;
+    padding: 120px 0;
 }
 
 body::before {
@@ -142,6 +143,10 @@ nav.scrolled {
 
 .nav-links a:hover {
     color: var(--paper)
+}
+
+.nav-links a.home-link {
+    color: var(--paper-dim);
 }
 
 .nav-toggle {
@@ -279,6 +284,10 @@ footer {
 }
 
 @media(max-width:880px) {
+    section {
+        padding: 84px 0;
+    }
+
     .nav-links {
         display: none;
     }

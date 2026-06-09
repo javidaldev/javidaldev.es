@@ -14,5 +14,9 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 RewriteRule ^github/?$ https://github.com/javidaldev [R=302,L]
 RewriteRule ^linkedin/?$ https://www.linkedin.com/in/javidaldev [R=302,L]
 
+# Canonical sin barra: /diseno-web/ → /diseno-web (301) y rewrite interno para servir el index
+RewriteRule ^diseno-web/$ /diseno-web [R=301,L]
+RewriteRule ^diseno-web$ diseno-web/index.php [L]
+
 # Rutas internas
 RewriteRule ^cv/?$ assets/docs/cv-javier-vidal.pdf [L]

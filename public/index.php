@@ -101,17 +101,15 @@
   <?php include __DIR__ . '/sections/trabajemos.html'; ?>
   <?php include __DIR__ . '/sections/contacto.html'; ?>
 
-  <footer>
-    <div class="wrap foot-inner">
-      <div class="foot-line">Que no dé miedo tocarlo.</div>
-      <div class="foot-links">
-        <a href="/github" target="_blank" rel="noopener">GitHub</a>
-        <a href="/linkedin" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="/cv" target="_blank" rel="noopener">Trayectoria</a>
-      </div>
-      <div class="foot-meta">Javier Vidal · javidaldev.es · © 2026</div>
-    </div>
-  </footer>
+  <?php
+  $foot_line  = 'Que no dé miedo tocarlo.';
+  $foot_links = [
+      ['href' => '/github',   'label' => 'GitHub',      'external' => true],
+      ['href' => '/linkedin', 'label' => 'LinkedIn',    'external' => true],
+      ['href' => '/cv',       'label' => 'Trayectoria', 'external' => true],
+  ];
+  include __DIR__ . '/commons/footer.html';
+  ?>
 
   <script src="main.js"></script>
 </body>
