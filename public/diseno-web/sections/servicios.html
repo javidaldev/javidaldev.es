@@ -1,0 +1,110 @@
+<section id="servicios" class="svc">
+    <div class="wrap">
+        <div class="section-head reveal">
+            <h2 class="eyebrow center">Qué hago</h2>
+            <p class="sec-title">Tres cosas, <em>bien hechas</em>.</p>
+            <p class="sub">No hago de todo. Hago esto, y lo hago para que aguante.</p>
+        </div>
+        <div class="svc-grid reveal">
+            <div class="svc-card">
+                <div class="no">01</div>
+                <h3>Webs para tu negocio</h3>
+                <p>Tu web de presentación: que se entienda, cargue rápido y dé buena imagen. La hago nueva o le doy un lavado de cara a la que ya tienes.</p>
+                <div class="tags">
+                    <span class="tag">corporativa</span>
+                    <span class="tag">presentación</span>
+                    <span class="tag">rediseño</span>
+                </div>
+            </div>
+            <div class="svc-card">
+                <div class="no">02</div>
+                <h3>Tiendas online (WooCommerce)</h3>
+                <p>Vender de verdad, no un escaparate bonito y muerto. Catálogo, pagos, envíos y una trastienda que puedas manejar tú sin llamarme cada semana.</p>
+                <div class="tags">
+                    <span class="tag">WooCommerce</span>
+                    <span class="tag">pagos</span>
+                </div>
+            </div>
+            <div class="svc-card">
+                <div class="no">03</div>
+                <h3>Mantenimiento y migraciones (WordPress)</h3>
+                <p>¿Ya tienes WordPress y necesitas quien lo cuide, lo arregle o lo mude a un sitio mejor? También. Que siga en pie, rápido y al día, sin sustos.</p>
+                <div class="tags">
+                    <span class="tag">WordPress</span>
+                    <span class="tag">migración</span>
+                    <span class="tag">rendimiento</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .svc {
+        background: var(--ink-2);
+        border-top: 1px solid var(--line);
+    }
+
+    .svc-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .svc-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 3px;
+        padding: 30px 26px 28px;
+        transition: border-color .3s, transform .3s;
+    }
+
+    .svc-card:hover {
+        border-color: var(--line-strong);
+        transform: translateY(-4px);
+    }
+
+    .svc-card .no {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 2.1rem;
+        color: var(--ember);
+        line-height: 1;
+        margin-bottom: 16px;
+        opacity: .85;
+    }
+
+    .svc-card h3 {
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 1.15rem;
+        color: var(--paper);
+        margin-bottom: 12px;
+    }
+
+    .svc-card p {
+        font-size: .97rem;
+        color: var(--paper-dim);
+        line-height: 1.5;
+    }
+
+    .svc-card .tags {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+    }
+
+    .svc-card .tag {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--muted);
+        border: 1px solid var(--line);
+        padding: 3px 8px;
+        border-radius: 2px;
+    }
+
+    @media(max-width: 880px) {
+        .svc-grid { grid-template-columns: 1fr; }
+    }
+</style>

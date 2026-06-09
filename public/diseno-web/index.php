@@ -49,6 +49,7 @@
     <a href="https://javidaldev.es" class="brand">javidal<b>dev</b></a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">≡</button>
     <div class="nav-links" id="navLinks">
+      <a href="#servicios">Qué hago</a>
       <a href="mailto:hola@javidaldev.es" class="nav-cta">Hablemos</a>
     </div>
   </div>
@@ -56,8 +57,9 @@
 
 <?php include __DIR__ . '/sections/hero.html'; ?>
 <?php include __DIR__ . '/sections/problema.html'; ?>
+<?php include __DIR__ . '/sections/servicios.html'; ?>
 
-<!-- secciones pendientes: servicios · como-trabajo · contacto -->
+<!-- secciones pendientes: como-trabajo · contacto -->
 
 <?php
 $foot_line = 'No solo que funcione. Que aguante.';
