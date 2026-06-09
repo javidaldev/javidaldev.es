@@ -1,0 +1,66 @@
+<section id="contacto" class="contact-dw">
+    <div class="wrap">
+        <div class="section-head reveal">
+            <h2 class="eyebrow center">Contacto</h2>
+            <p class="sec-title">Cuéntame qué <em>tienes</em>.</p>
+            <p class="sub">No hace falta que lo tengas claro ni que sepas de webs. Con que me digas qué quieres conseguir, empezamos.</p>
+        </div>
+        <div class="contact-box reveal">
+            <div class="contact-pills">
+                <a href="mailto:hola@javidaldev.es">hola@javidaldev.es</a>
+                <a href="https://javidaldev.es">Quién soy ↗</a>
+            </div>
+            <form id="contactForm" action="/enviar.php" method="post" novalidate>
+                <input type="text" name="website" class="hp-field" autocomplete="off" tabindex="-1">
+                <input type="hidden" name="origen" value="diseno-web">
+                <div class="form-field">
+                    <label for="nombre">nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Cómo te llamas" required>
+                </div>
+                <div class="form-field">
+                    <label for="email">email</label>
+                    <input type="email" id="email" name="email" placeholder="Dónde te respondo" required>
+                </div>
+                <div class="form-field">
+                    <label for="mensaje">qué necesitas</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Una web nueva, una tienda, arreglar la que tienes…" required></textarea>
+                </div>
+                <div class="form-send">
+                    <button type="submit" class="btn-primary" id="sendBtn">Enviar →</button>
+                </div>
+                <div id="formMsg" class="form-msg" aria-live="polite"></div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact-dw { border-top: 1px solid var(--line); }
+
+    .contact-box {
+        max-width: 560px;
+        margin: 0 auto;
+    }
+
+    .contact-pills {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 34px;
+    }
+
+    .contact-pills a {
+        font-family: var(--mono);
+        font-size: 13.5px;
+        color: var(--paper-dim);
+        border: 1px solid var(--line);
+        padding: 10px 16px;
+        border-radius: 40px;
+        transition: border-color .25s, color .25s;
+    }
+
+    .contact-pills a:hover { border-color: var(--ember); color: var(--ember); }
+
+    .form-send { text-align: center; margin-top: 8px; }
+</style>

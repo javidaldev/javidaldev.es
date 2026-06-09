@@ -27,6 +27,14 @@ if (!$nombre || !$email || !$mensaje || !filter_var($email, FILTER_VALIDATE_EMAI
     exit;
 }
 
+// Whitelist de orígenes → asunto. El valor crudo de $_POST no se usa directamente.
+$origenes = [
+    'home'       => '[javidaldev:contacto] %s',
+    'diseno-web' => '[javidaldev:diseño-web] %s',
+];
+$origen = trim((string) ($_POST['origen'] ?? ''));
+$asunto = sprintf($origenes[$origen] ?? '[javidaldev:contacto] %s', $nombre);
+
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/lib/PHPMailer/Exception.php';
 require_once __DIR__ . '/lib/PHPMailer/PHPMailer.php';
@@ -50,7 +58,7 @@ try {
     $mail->addAddress(MAIL_TO);
     $mail->addReplyTo($email, $nombre);
 
-    $mail->Subject = "[javidaldev:contacto] {$nombre}";
+    $mail->Subject = $asunto;
     $mail->Body    = "Nombre: {$nombre}\nEmail: {$email}\n\n{$mensaje}";
 
     $mail->send();

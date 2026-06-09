@@ -46,7 +46,7 @@ if (contactForm) {
         msg.className = 'form-msg';
 
         try {
-            const res  = await fetch('enviar.php', { method: 'POST', body: new FormData(contactForm) });
+            const res  = await fetch(contactForm.action, { method: 'POST', body: new FormData(contactForm) });
             const data = await res.json();
 
             if (data.ok) {

@@ -51,7 +51,7 @@
     <div class="nav-links" id="navLinks">
       <a href="#servicios">Qué hago</a>
       <a href="#como-trabajo">Cómo trabajo</a>
-      <a href="mailto:hola@javidaldev.es" class="nav-cta">Hablemos</a>
+      <a href="#contacto" class="nav-cta">Hablemos</a>
     </div>
   </div>
 </nav>
@@ -60,8 +60,7 @@
 <?php include __DIR__ . '/sections/problema.html'; ?>
 <?php include __DIR__ . '/sections/servicios.html'; ?>
 <?php include __DIR__ . '/sections/como-trabajo.html'; ?>
-
-<!-- sección pendiente: contacto -->
+<?php include __DIR__ . '/sections/contacto.html'; ?>
 
 <?php
 $foot_line = 'No solo que funcione. Que aguante.';
