@@ -17,5 +17,9 @@ RewriteRule ^linkedin/?$ https://www.linkedin.com/in/javidaldev [R=302,L]
 # /diseno-web y /diseno-web/ sirven el mismo contenido; el canonical del <head> declara la preferida
 RewriteRule ^diseno-web/?$ diseno-web/index.php [L]
 
+# Alias de marketing: web.javidaldev.es → /diseno-web (el subdominio solo redirige, no sirve contenido)
+RewriteCond %{HTTP_HOST} ^web\.javidaldev\.es$ [NC]
+RewriteRule ^ https://javidaldev.es/diseno-web/ [R=301,L]
+
 # Rutas internas
 RewriteRule ^cv/?$ assets/docs/cv-javier-vidal.pdf [L]
