@@ -52,6 +52,10 @@ HTML, CSS y JavaScript plano: sin compilar, sin dependencias. PHP ensambla cada 
 
 Cada página carga `base.css` + su propio CSS de página. Los CSS de página nunca colisionan entre sí; `body.page-home` / `body.page-diseno-web` da scope adicional.
 
+### Sitemap
+
+`public/sitemap.xml` incluye home y `/diseno-web`.
+
 ### Formulario
 
 Endpoint PHP propio (`enviar.php`) con el correo del hosting, parametrizado por `origen` (whitelist en servidor: `home`, `diseno-web`…). Honeypot anti-spam. Si el envío falla, muestra el email directo.

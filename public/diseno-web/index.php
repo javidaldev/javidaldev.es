@@ -9,8 +9,6 @@
   <title>Diseño web en Sevilla — páginas y tiendas online · javidaldev</title>
   <meta name="description" content="Diseño web para negocios y autónomos en Sevilla: páginas y tiendas online que cargan rápido, se encuentran y no te dejan atado. La hace, de principio a fin, quien responde de ella.">
   <link rel="canonical" href="https://javidaldev.es/diseno-web">
-  <meta name="robots" content="noindex">
-
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="javidaldev">
@@ -40,7 +38,37 @@
   <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
 
-  <!-- Schema.org — TODO: ProfessionalService (commit 10) -->
+  <!-- Schema.org - ProfessionalService -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://javidaldev.es/diseno-web#service",
+    "name": "Diseño web en Sevilla · javidaldev",
+    "description": "Diseño web para negocios y autónomos en Sevilla: páginas y tiendas online que cargan rápido, se encuentran y no te dejan atado. La hace, de principio a fin, quien responde de ella.",
+    "url": "https://javidaldev.es/diseno-web",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://javidaldev.es/#javidaldev",
+      "name": "javidaldev",
+      "url": "https://javidaldev.es"
+    },
+    "areaServed": [
+      { "@type": "Country",             "name": "España" },
+      { "@type": "State",               "name": "Andalucía",                  "addressCountry": "ES" },
+      { "@type": "AdministrativeArea",  "name": "Provincia de Sevilla",       "addressCountry": "ES" },
+      { "@type": "City",                "name": "Sevilla",                    "addressCountry": "ES" },
+      { "@type": "City",                "name": "Los Palacios y Villafranca", "addressCountry": "ES" },
+      { "@type": "City",                "name": "Dos Hermanas",               "addressCountry": "ES" },
+      { "@type": "City",                "name": "Utrera",                     "addressCountry": "ES" },
+      { "@type": "City",                "name": "Alcalá de Guadaíra",         "addressCountry": "ES" },
+      { "@type": "City",                "name": "Las Cabezas de San Juan",    "addressCountry": "ES" },
+      { "@type": "City",                "name": "Lebrija",                    "addressCountry": "ES" }
+    ],
+    "serviceType": ["Diseño web", "Tiendas online", "WordPress", "WooCommerce", "Mantenimiento web"],
+    "inLanguage": "es-ES"
+  }
+  </script>
 </head>
 <body class="page-diseno-web">
 
