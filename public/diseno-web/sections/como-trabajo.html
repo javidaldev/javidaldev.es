@@ -1,0 +1,139 @@
+<section id="como-trabajo" class="how">
+    <div class="wrap">
+        <div class="section-head reveal">
+            <h2 class="eyebrow center">Cómo trabajo</h2>
+            <p class="sec-title">Hablas conmigo, <em>no con un comercial</em>.</p>
+        </div>
+        <p class="how-intro reveal">El que diseña tu web es el que te coge el teléfono: sin intermediarios ni promesas que luego cumple otro. Lo que no negocio es que <span class="hl">aguante</span> —que se entienda, que la puedas cambiar tú y que siga en pie el día doscientos—. Te la dejo funcionando de punta a punta, alojamiento, dominio y correo incluidos, y preparada para que Google la entienda.</p>
+        <div class="steps reveal">
+            <div class="stepc">
+                <div class="num">1</div>
+                <div class="lbl">Hablamos</div>
+                <div class="by">qué necesitas de verdad</div>
+            </div>
+            <div class="stepc">
+                <div class="num">2</div>
+                <div class="lbl">Te propongo</div>
+                <div class="by">qué, cómo y cuánto</div>
+            </div>
+            <div class="stepc">
+                <div class="num">3</div>
+                <div class="lbl">La construyo</div>
+                <div class="by">y te voy enseñando</div>
+            </div>
+            <div class="stepc">
+                <div class="num">4</div>
+                <div class="lbl">La tienes</div>
+                <div class="by">y te enseño a usarla</div>
+            </div>
+        </div>
+        <p class="how-foot reveal">Sin letra pequeña: sabes qué cuesta antes de empezar.</p>
+        <div class="whoami reveal">
+            Detrás de esto hay una persona, no una agencia fantasma: desarrollador con más de once años de oficio; las webs las trabajo con WordPress y WooCommerce. <a href="https://javidaldev.es">Quién soy →</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .how {
+        background: var(--ink-2);
+        border-top: 1px solid var(--line);
+    }
+
+    .how-intro {
+        max-width: 62ch;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.12rem;
+        color: var(--paper-dim);
+        line-height: 1.55;
+    }
+
+    .how-intro .hl { color: var(--paper); font-weight: 400; }
+
+    .steps {
+        position: relative;
+        display: flex;
+        gap: 18px;
+        margin: 56px 0 0;
+    }
+
+    .steps::before {
+        content: "";
+        position: absolute;
+        top: 17px;
+        left: 9%;
+        right: 9%;
+        height: 1px;
+        border-top: 1px dashed var(--line-strong);
+        z-index: 0;
+    }
+
+    .stepc {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        text-align: center;
+        padding: 0 8px;
+    }
+
+    .stepc .num {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1.5px solid var(--ember);
+        background: var(--ink-2);
+        display: grid;
+        place-items: center;
+        color: var(--ember);
+        font-family: var(--mono);
+        font-size: 14px;
+        margin: 0 auto 16px;
+    }
+
+    .stepc .lbl {
+        font-family: var(--mono);
+        font-size: 14px;
+        color: var(--paper);
+        margin-bottom: 6px;
+    }
+
+    .stepc .by { font-size: .9rem; color: var(--muted); line-height: 1.4; }
+
+    .how-foot {
+        text-align: center;
+        margin-top: 40px;
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 1.02rem;
+        color: var(--ember-soft);
+    }
+
+    .whoami {
+        max-width: 60ch;
+        margin: 34px auto 0;
+        text-align: center;
+        border-top: 1px solid var(--line);
+        padding-top: 26px;
+        font-size: 1.02rem;
+        color: var(--paper-dim);
+    }
+
+    .whoami a {
+        color: var(--ember);
+        font-family: var(--mono);
+        font-size: .92rem;
+        border-bottom: 1px solid transparent;
+        transition: border-color .25s;
+    }
+
+    .whoami a:hover { border-color: var(--ember); }
+
+    @media(max-width: 880px) {
+        .steps { flex-direction: column; gap: 8px; margin-top: 40px; }
+        .steps::before { display: none; }
+        .stepc { display: flex; align-items: center; gap: 16px; text-align: left; padding: 10px 0; border-top: 1px dashed var(--line); }
+        .stepc:first-child { border-top: none; }
+        .stepc .num { margin: 0; flex-shrink: 0; }
+    }
+</style>
