@@ -22,8 +22,17 @@
                     <input type="email" id="email" name="email" placeholder="Dónde te respondo" required>
                 </div>
                 <div class="form-field">
-                    <label for="mensaje">qué necesitas</label>
-                    <textarea id="mensaje" name="mensaje" placeholder="Una web nueva, una tienda, arreglar la que tienes…" required></textarea>
+                    <label for="necesidad">¿qué necesitas?</label>
+                    <select id="necesidad" name="necesidad" required>
+                        <option value="" disabled selected hidden>Elige una opción</option>
+                        <option value="presentacion">Una web para presentar mi negocio y recibir contactos (mensajes, presupuestos, reservas…)</option>
+                        <option value="tienda">Una tienda online donde mis clientes compren y paguen en la web</option>
+                        <option value="unclear">Aún no lo tengo claro</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="mensaje">cuéntame algo de tu proyecto (opcional)</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Tu negocio, qué buscas con la web, si ya tienes algo hecho… lo que quieras contar."></textarea>
                 </div>
                 <div class="form-send">
                     <button type="submit" class="btn-primary" id="sendBtn">Enviar →</button>
@@ -63,4 +72,36 @@
     .contact-pills a:hover { border-color: var(--ember); color: var(--ember); }
 
     .form-send { text-align: center; margin-top: 8px; }
+
+    .form-field select {
+        width: 100%;
+        background-color: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        padding: 13px 38px 13px 14px;
+        color: var(--paper);
+        font-family: var(--sans);
+        font-size: 15px;
+        font-weight: 300;
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        transition: border-color .25s;
+        background-image:
+            linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+            linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+        background-position: calc(100% - 20px) center, calc(100% - 14px) center;
+        background-size: 6px 6px, 6px 6px;
+        background-repeat: no-repeat;
+    }
+
+    .form-field select:focus {
+        outline: none;
+        border-color: var(--ember);
+    }
+
+    .form-field select option {
+        background: var(--surface);
+        color: var(--paper);
+    }
 </style>
