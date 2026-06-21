@@ -50,7 +50,9 @@ if (contactForm) {
             const data = await res.json();
 
             if (data.ok) {
-                msg.textContent = 'Recibido. Te respondo en cuanto lo lea, no se me traspapela.';
+                msg.textContent = contactForm.elements.origen?.value === 'diseno-web'
+                    ? 'Revisa tu correo: te acabo de escribir con los siguientes pasos. Si no lo ves, mira la carpeta de spam.'
+                    : 'Mensaje recibido. Lo leo y te escribo en cuanto pueda — normalmente en menos de 24 horas.';
                 msg.className = 'form-msg ok';
                 contactForm.reset();
             } else if (res.status === 400) {

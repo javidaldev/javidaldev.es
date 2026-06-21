@@ -73,10 +73,8 @@ function etiquetaNecesidad(string $necesidad): string
 
 function plantillaAutorespuestaPresentacion(string $nombre): string
 {
-    $cuestionarioWeb = CUESTIONARIO_WEB;
-
     return <<<TXT
-Hola, {$nombre}:
+Hola {$nombre}:
 
 Gracias por escribirme y contarme un poco sobre tu proyecto.
 
@@ -84,7 +82,7 @@ Me dices que buscas una web para presentar tu negocio y recibir contactos: expli
 
 Para preparar una propuesta útil, te dejo un cuestionario sobre tu negocio y lo que necesitas de la web:
 
-→ {$cuestionarioWeb}
+→ {{ENLACE_CUESTIONARIO_WEB}}
 
 No es un examen: responde lo que sepas, y lo que no lo tengas claro lo vemos juntos después.
 
@@ -98,10 +96,8 @@ TXT;
 
 function plantillaAutorespuestaTienda(string $nombre): string
 {
-    $cuestionarioTienda = CUESTIONARIO_TIENDA;
-
     return <<<TXT
-Hola, {$nombre}:
+Hola {$nombre}:
 
 Gracias por escribirme y contarme un poco sobre tu proyecto.
 
@@ -109,7 +105,7 @@ Me dices que necesitas una tienda online: que tus clientes puedan comprar y paga
 
 Para preparar una propuesta útil, te dejo un cuestionario sobre tu negocio, tus productos y lo que necesitas de la tienda:
 
-→ {$cuestionarioTienda}
+→ {{ENLACE_CUESTIONARIO_TIENDA}}
 
 Es algo más largo que el de una web normal porque una tienda tiene más piezas (catálogo, pagos, envíos), pero no es un examen: responde lo que sepas, y lo que no lo tengas claro lo vemos juntos después.
 
@@ -123,11 +119,8 @@ TXT;
 
 function plantillaAutorespuestaIndecisa(string $nombre): string
 {
-    $cuestionarioWeb    = CUESTIONARIO_WEB;
-    $cuestionarioTienda = CUESTIONARIO_TIENDA;
-
     return <<<TXT
-Hola, {$nombre}:
+Hola {$nombre}:
 
 Gracias por escribirme y contarme un poco sobre tu proyecto.
 
@@ -138,8 +131,8 @@ Para preparar una propuesta útil, primero necesito entender si lo que buscas en
 
 No pasa nada si aún no lo tienes claro. Te dejo los dos cuestionarios; empieza por el que más se parezca a lo que tienes en mente (no hace falta rellenar los dos):
 
-1. Web de presentación → {$cuestionarioWeb}
-2. Tienda online → {$cuestionarioTienda}
+1. {{ENLACE_CUESTIONARIO_WEB}}
+2. {{ENLACE_CUESTIONARIO_TIENDA}}
 
 Si al revisar tus respuestas veo que el proyecto va por otro camino, te lo diré antes de preparar nada.
 
@@ -186,12 +179,30 @@ function firmaAutorespuesta(): string
 HTML;
 }
 
+function enlaceHtml(string $url, string $texto): string
+{
+    return '<a href="' . htmlspecialchars($url) . '" style="color:#e57a39;font-weight:600;text-decoration:underline;">'
+        . htmlspecialchars($texto)
+        . '</a>';
+}
+
+// Sustituye los marcadores {{ENLACE_*}} de las plantillas por enlaces reales, ya con su texto.
+// Las plantillas se generan y se escapan como texto plano, así que los enlaces se inyectan después.
+function sustituirEnlaces(string $cuerpo): string
+{
+    return strtr($cuerpo, [
+        '{{ENLACE_CUESTIONARIO_WEB}}'    => enlaceHtml(CUESTIONARIO_WEB, 'Cuestionario web de presentación'),
+        '{{ENLACE_CUESTIONARIO_TIENDA}}' => enlaceHtml(CUESTIONARIO_TIENDA, 'Cuestionario tienda online'),
+    ]);
+}
+
 // Autorespuesta al remitente: solo en la landing /diseno-web, que es la que pregunta "necesidad".
 // El contacto de la home no lleva esa pregunta, así que no tiene autorespuesta.
 function enviarAutorespuesta(string $email, string $nombre, string $necesidad): void
 {
     try {
         $cuerpo = nl2br(htmlspecialchars(plantillaAutorespuesta($necesidad, $nombre)), false);
+        $cuerpo = sustituirEnlaces($cuerpo);
 
         $auto = crearMailer();
         $auto->isHTML(true);
