@@ -17,9 +17,10 @@ if (!empty($_POST['website'])) {
     exit;
 }
 
-$nombre  = strip_tags(trim((string) ($_POST['nombre']  ?? '')));
-$email   = trim((string) ($_POST['email']   ?? ''));
-$mensaje = strip_tags(trim((string) ($_POST['mensaje'] ?? '')));
+$nombre    = strip_tags(trim((string) ($_POST['nombre']    ?? '')));
+$email     = trim((string) ($_POST['email']     ?? ''));
+$mensaje   = strip_tags(trim((string) ($_POST['mensaje']   ?? '')));
+$necesidad = trim((string) ($_POST['necesidad'] ?? ''));
 
 if (!$nombre || !$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
@@ -59,12 +60,23 @@ function crearMailer(): PHPMailer
 const CUESTIONARIO_WEB    = 'https://docs.google.com/forms/d/17Lt7YTirypThtbzBbYvEhAYR4pzhUc0ikXjPbSHLJ7Q/viewform';
 const CUESTIONARIO_TIENDA = 'https://docs.google.com/forms/d/1lB87CjNDGZRdmqx6mc5D97cD3Mxmgtke-XHT9Xg94WQ/viewform';
 
-function plantillaAutorespuestaPresentacion(): string
+// Etiqueta legible de "necesidad" para la notificación que recibe Javier.
+function etiquetaNecesidad(string $necesidad): string
+{
+    return match ($necesidad) {
+        'presentacion' => 'Web de presentación',
+        'tienda'       => 'Tienda online',
+        'unclear'      => 'Aún no lo tiene claro',
+        default        => $necesidad,
+    };
+}
+
+function plantillaAutorespuestaPresentacion(string $nombre): string
 {
     $cuestionarioWeb = CUESTIONARIO_WEB;
 
     return <<<TXT
-Hola:
+Hola, {$nombre}:
 
 Gracias por escribirme y contarme un poco sobre tu proyecto.
 
@@ -84,12 +96,12 @@ Un saludo,
 TXT;
 }
 
-function plantillaAutorespuestaTienda(): string
+function plantillaAutorespuestaTienda(string $nombre): string
 {
     $cuestionarioTienda = CUESTIONARIO_TIENDA;
 
     return <<<TXT
-Hola:
+Hola, {$nombre}:
 
 Gracias por escribirme y contarme un poco sobre tu proyecto.
 
@@ -109,13 +121,13 @@ Un saludo,
 TXT;
 }
 
-function plantillaAutorespuestaIndecisa(): string
+function plantillaAutorespuestaIndecisa(string $nombre): string
 {
     $cuestionarioWeb    = CUESTIONARIO_WEB;
     $cuestionarioTienda = CUESTIONARIO_TIENDA;
 
     return <<<TXT
-Hola:
+Hola, {$nombre}:
 
 Gracias por escribirme y contarme un poco sobre tu proyecto.
 
@@ -143,12 +155,12 @@ TXT;
 
 // Plantilla de autorespuesta del formulario de /diseno-web, según la opción marcada en "necesidad".
 // Sin opción reconocida, se trata como "aún no lo tengo claro" (la opción que no compromete nada).
-function plantillaAutorespuesta(string $necesidad): string
+function plantillaAutorespuesta(string $necesidad, string $nombre): string
 {
     return match ($necesidad) {
-        'presentacion' => plantillaAutorespuestaPresentacion(),
-        'tienda'       => plantillaAutorespuestaTienda(),
-        default        => plantillaAutorespuestaIndecisa(),
+        'presentacion' => plantillaAutorespuestaPresentacion($nombre),
+        'tienda'       => plantillaAutorespuestaTienda($nombre),
+        default        => plantillaAutorespuestaIndecisa($nombre),
     };
 }
 
@@ -179,7 +191,7 @@ HTML;
 function enviarAutorespuesta(string $email, string $nombre, string $necesidad): void
 {
     try {
-        $cuerpo = nl2br(htmlspecialchars(plantillaAutorespuesta($necesidad)), false);
+        $cuerpo = nl2br(htmlspecialchars(plantillaAutorespuesta($necesidad, $nombre)), false);
 
         $auto = crearMailer();
         $auto->isHTML(true);
@@ -202,13 +214,20 @@ try {
     $mail->addAddress(MAIL_TO);
     $mail->addReplyTo($email, $nombre);
 
+    $detalles = "Nombre: {$nombre}\nEmail: {$email}";
+    if ($necesidad !== '') {
+        $detalles .= "\nNecesidad: " . etiquetaNecesidad($necesidad);
+    }
+    if ($mensaje !== '') {
+        $detalles .= "\n\n{$mensaje}";
+    }
+
     $mail->Subject = $asunto;
-    $mail->Body    = "Nombre: {$nombre}\nEmail: {$email}\n\n{$mensaje}";
+    $mail->Body    = $detalles;
 
     $mail->send();
 
     if ($origen === 'diseno-web') {
-        $necesidad = trim((string) ($_POST['necesidad'] ?? ''));
         enviarAutorespuesta($email, $nombre, $necesidad);
     }
 
